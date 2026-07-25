@@ -1,0 +1,1 @@
+uv run python -m utils.validators.validate_data
