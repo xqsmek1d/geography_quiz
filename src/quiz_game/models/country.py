@@ -3,6 +3,12 @@ from pydantic import BaseModel, Field
 class Country(BaseModel): 
     id: str
     name: str
+    optional_prefix: str | None = None
+    optional_suffix: str | None = None
+    optional_names: list[str] | None = None
+
+    iso2: str | None = None
+    fips: str | None = None
 
     region: str
     subregion: str
@@ -15,4 +21,4 @@ class Country(BaseModel):
     
     difficulty_score: float | None = None
 
-    flag_image: str | None = None
+    image: str | None = None

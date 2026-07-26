@@ -1,1 +1,2 @@
-uv run python -m utils.build_countries_data
+uv run python -m utils.build_data.build_countries
+uv run python -m utils.build_data.build_cities

@@ -1,0 +1,13 @@
+NO_FLAG = ['GLP', 'MYT', 'GUF', 'MAF', 'BES', 'BLM', 'SHN', 'BVT', 'HMD', 'SJM', 'UMI']
+
+NO_CAPITAL_INFO = ['IOT', 'ATF', 'VAT', 'PSE', 'SGS']
+
+NO_CAPITAL_LOCATION = ['PSE'] #['IOT', 'ATF', 'VAT', 'PSE', 'SGS']
+
+NO_SHAPE_IMAGE = ['ATA']
+
+NO_HIGHLIGHT_IMAGE = ['ATA']
+
+NO_COAT_OF_ARMS = []
+
+NO_CAPITAL = ['BES', 'TKL', 'ATA', 'BVT', 'HMD', 'UMI']

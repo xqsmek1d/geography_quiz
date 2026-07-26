@@ -1,0 +1,1 @@
+uv run python -m tests.test_country_repository

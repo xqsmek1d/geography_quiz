@@ -1,0 +1,13 @@
+- United States Minor Outlying Islands		: Same as the USA
+- Svalbard and Jan Mayen (Islands)		: Same as Norway
+- Saint Helena, Ascension and Tristan da Cunha	: Same as United Kingdom
+- Mayotte					: Same as France
+- Saint Martin (French Part)			: Same as France/no flag
+- Heard Island and McDonald Islands		: No flag (same as Australia)
+- French Guiana					: No flag (same as France)
+- Guadeloupe					: No flag (same as France)
+- Bouvet Island					: No flag (same as Norway)
+- Saint barthelamy				: No flag (same as France)
+- Bonaire, Sint Eustasius and Saba		: No flag (same as the Netherlands)
+
++ Reunion						: Unofficial but widely used flag added

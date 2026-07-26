@@ -1,1 +1,1 @@
-uv run python -m utils.validators.validate_data
+uv run python -m utils.validation.validate_data

@@ -36,11 +36,11 @@ class DistractorStrategy(Enum):
     SAME_COUNTRY = 3
 ALL_DISTRACTOR_STRATEGIES = tuple(DistractorStrategy)
 
-class DifficultyLevel(StrEnum):
-    EASY = "easy"
-    NORMAL = "normal"
-    HARD = "hard"
-    WIZARD = "wizard"
+class DifficultyLevel(Enum):
+    EASY = 0.3
+    NORMAL = 0.5
+    HARD = 0.7
+    WIZARD = 1
 
 class DifficultyProgression(StrEnum):
     FIXED = "fixed"
