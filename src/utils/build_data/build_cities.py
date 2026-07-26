@@ -4,7 +4,7 @@ import os
 import geopandas as gpd
 
 from utils.paths import COUNTRIES_CSV, CITIES_CORRECTIONS_JSON, CITIES_GEOJSON, CITIES_JSON
-from utils.data_exceptions import NO_CAPITAL_INFO
+from utils.validation.known_data_exceptions import NO_CAPITAL_INFO
 from quiz_game.repositories.city_repository import CityRepository
 from quiz_game.models.city import City
 from utils.corrections.country_transformations import normalize_region, normalize_subregion
@@ -50,7 +50,7 @@ def build_capitals():
 
     temp_path.replace(CITIES_JSON)
 
-    print(f"Succesfully rewrote {len(capitals)} capitals in {CITIES_JSON}")
+    print(f"Succesfully wrote {len(capitals)} capitals in {CITIES_JSON}")
 
 def update_capital_info():
 
@@ -95,7 +95,7 @@ def update_capital_info():
 
     temp_path.replace(CITIES_JSON)
 
-    print(f"Succesfully rewrote capital information for {count} in {CITIES_JSON}")
+    print(f"Succesfully wrote capital information for {count} in {CITIES_JSON}")
 
     # Return names of capitals that were not updated
     untouched_capitals = []

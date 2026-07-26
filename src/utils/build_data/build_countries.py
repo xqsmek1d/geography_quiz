@@ -63,7 +63,7 @@ def build_countries():
 
     temp_path.replace(COUNTRIES_JSON)
 
-    print(f"Succesfully rewrote {len(countries)} countries in {COUNTRIES_JSON}")
+    print(f"Succesfully wrote {len(countries)} countries in {COUNTRIES_JSON}")
 
 if __name__ == "__main__":
     main()
