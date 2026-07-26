@@ -12,5 +12,6 @@ wheels/
 # Generated assets
 /assets/country_highlights/
 /assets/country_shapes/
+/assets/OLD/
 /data/
 /sources/original/
