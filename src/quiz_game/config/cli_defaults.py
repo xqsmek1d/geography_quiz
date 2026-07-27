@@ -3,8 +3,10 @@
 from quiz_game.models.settings import QuizSettings, GameplaySettings, LocationFilter
 from quiz_game.config.enums import (
     QuizMode,
+    QuestionCategory,
     ALL_QUESTION_CATEGORIES,
     ALL_ANSWER_TYPES,
+    DistractorStrategy,
     ALL_DISTRACTOR_STRATEGIES,
     DifficultyLevel,
     DifficultyProgression,
@@ -26,9 +28,11 @@ CLI_LOCATION_FILTER = LocationFilter(
 
 CLI_QUIZ_SETTINGS = QuizSettings(
     quiz_mode=QuizMode.PRACTICE,
-    question_categories=ALL_QUESTION_CATEGORIES,
+    #question_categories=ALL_QUESTION_CATEGORIES,
+    question_categories=[QuestionCategory.COUNTRY_CAPITAL,],
     answer_types=ALL_ANSWER_TYPES,
-    distractor_strategies=ALL_DISTRACTOR_STRATEGIES,
+    #distractor_strategies=ALL_DISTRACTOR_STRATEGIES,
+    distractor_strategies=[DistractorStrategy.RANDOM,],
     gameplay=GameplaySettings(),
     location_filter=CLI_LOCATION_FILTER,
     difficulty_level=DifficultyLevel.NORMAL,

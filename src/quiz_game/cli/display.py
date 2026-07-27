@@ -1,4 +1,5 @@
 from quiz_game.models.settings import QuizSettings
+from quiz_game.models.question import Question
 from quiz_game.config.enums import AnswerType
 
 def display_settings(settings: QuizSettings):
@@ -64,3 +65,15 @@ def display_settings(settings: QuizSettings):
         lines.append(f'\nMultiple choice distraction: {settings.distractor_strategies[0].name.lower().replace("_"," ")}')
 
     print("\n".join(lines))
+
+def display_question(question: Question):
+    raise NotImplementedError
+
+def display_result():
+    raise NotImplementedError
+
+def display_score():
+    raise NotImplementedError
+
+def display_summary():
+    raise NotImplementedError

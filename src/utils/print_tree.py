@@ -13,6 +13,8 @@ IGNORE_CONTENTS = {
     "country_coa",
     "*.egg-info",
     "OLD",
+    "flat_country_highlights",
+    "original",
 }
 
 

@@ -34,3 +34,4 @@ class QuizSettings(BaseModel):
     #country_filter: CountryFilter (here for possible future purpose)
     difficulty_level: DifficultyLevel = DifficultyLevel.NORMAL
     difficulty_progression: DifficultyProgression = DifficultyProgression.FIXED
+    question_seed: int | None = None

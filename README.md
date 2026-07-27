@@ -13,7 +13,7 @@ Although it is still mainly focused on interaction with a command-line interface
 
 ## Features
 
-### Quiz
+### Quiz *(planned)*
 
 - Multiple question types
     - Country → Capital *(planned)*
@@ -116,12 +116,6 @@ Run all tests
 
 ```bash
 ./run_tests.sh
-```
-
-or
-
-```bash
-pytest
 ```
 
 ---

@@ -5,25 +5,29 @@ from typing import Any
 from quiz_game.models.country import Country
 from quiz_game.models.settings import LocationFilter
 from quiz_game.config.enums import DifficultyLevel
+from utils.paths import COUNTRIES_JSON
 
 class CountryRepository:
-    def __init__(self, path: Path):
+    def __init__(self, path: Path = COUNTRIES_JSON):
         self.path = path
+        self._countries = None
     
-    def load_all(self, as_dict: bool = False) -> list[Country]:
-        with open(self.path, encoding="utf-8") as f:
-            data = json.load(f)
-        countries = [Country(**country) for country in data]
-        
+    def load_all(self, as_dict=False):
+
+        if self._countries is None:
+            with open(self.path, encoding="utf-8") as f:
+                data = json.load(f)
+
+            self._countries = [Country(**country) for country in data]
+
         if as_dict:
-            return {country.id: country for country in countries}
-            
-        return countries
+            return {country.id: country for country in self._countries}
+
+        return self._countries.copy()
 
 
-    def get_images(self) -> list[str]:
-        countries = self.load_all()
-        return set([country.image for country in countries])
+    def get_images(self) -> set[str]:
+        return set([country.image for country in self._countries])
 
     def load_with_filters(
         self,
@@ -74,3 +78,7 @@ class CountryRepository:
                 fips_to_iso3_dict[country.fips] = country.id
 
         return fips_to_iso3_dict
+
+    def get_by_id(self, country_id: str) -> Country | None:
+        countries = self.load_all(as_dict=True)
+        return countries.get(country_id)

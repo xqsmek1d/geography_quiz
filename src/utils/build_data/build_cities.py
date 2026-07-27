@@ -33,7 +33,8 @@ def build_capitals():
                 name = capital,
                 country_id = country_id,
                 is_capital = True,
-                image = f"{slugify(capital_id)}.png",
+                is_subcapital = False,
+                image = f"{slugify(capital_id).upper()}.png",
             )
 
             capitals.append(capital)
