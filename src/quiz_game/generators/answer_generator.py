@@ -45,8 +45,12 @@ class AnswerGenerator:
         )
 
         answer_key = AnswerKey(
+            answer_pool_type=question_data.answer_pool_type,
+            answer_type=AnswerType.OPEN,
+            accepted_answers= ...
             correct_answer=question_data.correct_answer,
             correct_answer_id=question_data.correct_answer_id,
+
         )
 
         return question, answer_key
@@ -70,6 +74,9 @@ class AnswerGenerator:
         )
 
         answer_key = AnswerKey(
+            answer_pool_type=question_data.answer_pool_type,
+            answer_type=AnswerType.MC,
+            accepted_answers= ...
             correct_answer=question_data.correct_answer,
             correct_answer_id=question_data.correct_answer_id,
             correct_option_index=options.index(question_data.correct_answer),

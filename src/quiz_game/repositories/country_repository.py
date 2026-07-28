@@ -27,7 +27,8 @@ class CountryRepository:
 
 
     def get_images(self) -> set[str]:
-        return set([country.image for country in self._countries])
+        countries = self.load_all()
+        return set([country.image for country in countries])
 
     def load_with_filters(
         self,

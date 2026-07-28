@@ -12,7 +12,7 @@ from shapely import get_coordinates
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from matplotlib.patches import Rectangle
 from matplotlib.lines import Line2D
-from utils.images.map_drawing_tools import INSET_COUNTRIES, ZOOM_COUNTRIES, crosses_antimeridian, shift_longitudes
+from utils.assets.map_drawing_tools import INSET_COUNTRIES, ZOOM_COUNTRIES, crosses_antimeridian, shift_longitudes
 from utils.paths import COUNTRIES_GPKG, COUNTRY_HIGHLIGHT_IMAGES_DIR
 
 PADDING_FACTOR = 0.1
@@ -171,7 +171,11 @@ def connect_inset(ax, fig, inset, rect):
         fig.add_artist(line)
 
 def draw_globe_highlights():
-
+    check = input("Do you want to (re)create the country highlight images, considering this MAY TAKE A WHILE? (Y/n): ")
+    
+    if check != "Y":
+        return
+        
     print("\n===== Drawing globe country images =====")
 
     gdf = gpd.read_file(

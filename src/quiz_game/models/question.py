@@ -1,6 +1,5 @@
 from pydantic import BaseModel, Field
-from quiz_game.config.enums import QuestionCategory
-from quiz_game.config.enums import AnswerType
+from quiz_game.config.enums import QuestionCategory, AnswerType, PoolType
 
 class Question(BaseModel): 
     category: QuestionCategory

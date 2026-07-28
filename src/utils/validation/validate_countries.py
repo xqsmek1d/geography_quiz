@@ -4,7 +4,7 @@ from utils.paths import COUNTRIES_JSON, CITIES_JSON
 from utils.paths import COUNTRY_FLAG_IMAGES_DIR, COUNTRY_SHAPE_IMAGES_DIR, COUNTRY_HIGHLIGHT_IMAGES_DIR
 from quiz_game.repositories.country_repository import CountryRepository
 from quiz_game.repositories.city_repository import CityRepository
-from quiz_game.config.question_pools import NO_CAPITAL, NO_COAT_OF_ARMS, NO_FLAG, NO_HIGHLIGHT_IMAGE, NO_SHAPE_IMAGE
+from quiz_game.config.known_data_exceptions import NO_CAPITAL, NO_COAT_OF_ARMS, NO_FLAG, NO_HIGHLIGHT_IMAGE, NO_SHAPE_IMAGE
 
 def validate_countries_data():
     countries_report = ["\n===== Country data validation report =====",]

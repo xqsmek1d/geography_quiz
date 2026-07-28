@@ -25,6 +25,7 @@ CITIES_JSON = DATA_DIR / "cities.json"
 LANDMARKS_JSON = DATA_DIR / "landmarks.json"
 
 # file paths (assets)
+PLACEHOLDER_IMAGE_PATH = ASSETS_DIR / "placeholder.png"
 COUNTRY_FLAG_IMAGES_DIR = ASSETS_DIR / "country_flags"
 COUNTRY_SHAPE_IMAGES_DIR = ASSETS_DIR / "country_shapes"
 COUNTRY_HIGHLIGHT_IMAGES_DIR = ASSETS_DIR / "country_highlights"

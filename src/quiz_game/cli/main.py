@@ -2,14 +2,16 @@ import random
 
 from quiz_game.config.loader import load_cli_settings
 from quiz_game.cli.display import display_settings
+from quiz_game.core.quiz_session import QuizSession
+from quiz_game.cli.game_loop import GameLoop
 
 from quiz_game.generators.distractor_generator import DistractorGenerator
 
 from quiz_game.builders.builder_context import BuilderContext
 from quiz_game.builders.country_capital_builder import CountryCapitalBuilder
-#from quiz_game.builders.capital_country_builder import CapitalCountryBuilder
-#from quiz_game.builders.flag_country_builder import FlagCountryBuilder
-#from quiz_game.builders.map_highlight_country_builder import MapHighlightCountryBuilder
+from quiz_game.builders.capital_country_builder import CapitalCountryBuilder
+from quiz_game.builders.flag_country_builder import FlagCountryBuilder
+from quiz_game.builders.map_highlight_country_builder import MapHighlightCountryBuilder
 
 from quiz_game.builders.question_builder_registry import QuestionBuilderRegistry
 
@@ -24,6 +26,10 @@ from quiz_game.repositories.city_repository import CityRepository
 
 from quiz_game.generators.answer_generator import AnswerGenerator
 from quiz_game.generators.question_generator import QuestionGenerator
+
+from quiz_game.services.answer_service import AnswerService
+from quiz_game.services.answer_resolver import AnswerResolver
+from quiz_game.services.answer_evaluator import AnswerEvaluator
 
 def main():
 
@@ -51,9 +57,9 @@ def main():
     builder_registry = QuestionBuilderRegistry()
     
     builder_registry.register(QuestionCategory.COUNTRY_CAPITAL, CountryCapitalBuilder(builder_context))
-    #builder_registry.register(QuestionCategory.CAPITAL_COUNTRY, CapitalCountryBuilder(builder_context))
-    #builder_registry.register(QuestionCategory.FLAG_COUNTRY, FlagCountryBuilder(builder_context))
-    #builder_registry.register(QuestionCategory.MAP_HIGHLIGHT_COUNTRY, MapHighlightCountryBuilder(builder_context))
+    builder_registry.register(QuestionCategory.CAPITAL_COUNTRY, CapitalCountryBuilder(builder_context))
+    builder_registry.register(QuestionCategory.FLAG_COUNTRY, FlagCountryBuilder(builder_context))
+    builder_registry.register(QuestionCategory.MAP_HIGHLIGHT_COUNTRY, MapHighlightCountryBuilder(builder_context))
 
     pool_registry = PoolFactoryRegistry()
     pool_registry.register(PoolType.COUNTRY, CountryPoolFactory(),)
@@ -66,7 +72,13 @@ def main():
         answer_generator=answer_generator,
         rng=rng)
 
-    #quiz = QuizSession(settings, question_generator=question_generator)
+    answer_evaluator = AnswerEvaluator()
+
+    session = QuizSession(settings, question_generator=question_generator, answer_evaluator=answer_evaluator)
+
+    game_loop = GameLoop(session)
+
+    game_loop.run()
 
 if __name__=="__main__":
     main()

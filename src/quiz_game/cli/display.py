@@ -1,6 +1,12 @@
+from quiz_game.models.game_state import GameState
+
 from quiz_game.models.settings import QuizSettings
 from quiz_game.models.question import Question
 from quiz_game.config.enums import AnswerType
+from quiz_game.config.constants import MC_LABELS
+
+from quiz_game.cli.image_viewer import ImageViewer
+
 
 def display_settings(settings: QuizSettings):
     lines = [
@@ -66,14 +72,43 @@ def display_settings(settings: QuizSettings):
 
     print("\n".join(lines))
 
-def display_question(question: Question):
-    raise NotImplementedError
+def display_question(question: Question, question_count: int | None, viewer: ImageViewer):
+    
+    lines = []
 
-def display_result():
-    raise NotImplementedError
+    if question_count is None:
+        lines.apppend("\n====== Question ======")
+    else:
+        lines.append(f"\n====== Question {question_count} ======")
+    
+    lines.append("")
+    lines.append(question.prompt)
+    lines.append("")
+
+    if question.answer_type == AnswerType.MC:
+        for label, option in zip(MC_LABELS, question.options):
+            lines.append(f"{label}) {option}")
+        
+        lines.append("")
+        lines.append("Type the letter (or the full answer):")
+    else:
+        lines.append("Type your answer:")
+
+    print("\n".join(lines))
+
+
+def display_result(self, result):
+
+    if result.correct:
+        print("Correct!")
+    else:
+        print(f"Incorrect. " f"The answer was {result.correct_answer}")
 
 def display_score():
     raise NotImplementedError
 
-def display_summary():
-    raise NotImplementedError
+def display_summary(game_state: GameState):
+
+    print("\nQuiz finished!")
+    print(f"Questions: {game_state.questions_asked}")
+    print(f"Score: {game_state.score}")

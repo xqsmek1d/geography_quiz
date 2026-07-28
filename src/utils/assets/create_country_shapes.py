@@ -5,7 +5,7 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 from utils.paths import COUNTRIES_GPKG, COUNTRY_SHAPE_IMAGES_DIR
-from utils.images.map_drawing_tools import crosses_antimeridian, get_local_projection, prepare_world
+from utils.assets.map_drawing_tools import crosses_antimeridian, get_local_projection, prepare_world
 
 
 def main():
@@ -78,9 +78,9 @@ def draw_shape_maps():
 
         target.plot(
             ax=ax,
-            color="white",
+            color="#46923c",
             edgecolor="black",
-            linewidth=0.4,
+            linewidth=0.3,
         )
 
         ax.set_xlim(xmin, xmax)
@@ -99,6 +99,7 @@ def draw_shape_maps():
         plt.close(fig)
 
     print("\r\033[KDone!", end="",flush=True)
+    print("")
 
 
 if __name__ == "__main__":

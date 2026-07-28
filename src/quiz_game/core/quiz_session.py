@@ -1,13 +1,12 @@
 from quiz_game.models.settings import QuizSettings
 from quiz_game.models.question import Question
 from quiz_game.models.game_state import GameState
+from quiz_game.models.answer_key import AnswerKey
 from quiz_game.models.answer_result import AnswerResult
 
 from quiz_game.generators.question_generator import QuestionGenerator
-from quiz_game.services.services.answer_checker import AnswerChecker
-from quiz_game.services.services.state_manager import StateManager
-
-from quiz_game.repositories.country_repository import CountryRepository
+from quiz_game.services.answer_evaluator import AnswerEvaluator
+from quiz_game.services.state_manager import StateManager
 
 class QuizSession: 
     """
@@ -16,27 +15,34 @@ class QuizSession:
     def __init__(
         self,
         settings: QuizSettings,
+        question_generator: QuestionGenerator,
+        answer_service: AnswerService,
     ):
 
         self.settings = settings
-        self.question_generator = QuestionGenerator(settings, country_repository=CountryRepository())
+        self.question_generator = question_generator
 
         self.state = GameState()
-        self.__current_question: Question | None = None
+        self._current_question: Question | None = None
+        self._current_answer_key: AnswerKey | None = None
 
-        self.answer_checker = AnswerChecker()
+        self.answer_service = answer_service
         self.state_manager = StateManager()
 
     def get_current_question(self) -> Question | None:
-        return self.__current_question
+        return self._current_question
 
-    def next_question(self):
+    def next_question(self) -> Question:
         """
         Generate and return the next question.
         """
-        question = self.generator.next_question()
+        if not self.has_questions():
+            raise RuntimeError("ERROR: no questions remaining!")
 
-        self.__current_question = question
+        question, answer_key = self.question_generator.next_question()
+
+        self._current_question = question
+        self._current_answer_key = answer_key
 
         self.state.questions_asked += 1
 
@@ -47,19 +53,20 @@ class QuizSession:
         Evaluate the current answer and update the game state.
         """
 
-        if self.__current_question is None:
-            raise RuntimeError("ERROR: no active question!")
+        if self._current_question is None or self._current_answer_key is None:
+            raise RuntimeError("ERROR: no active question or answer key!")
 
-        result = self.answer_checker.check(self.__current_question,answer,)
+        result = self.answer_evaluator.evaluate(self._current_answer_key, answer,)
 
         self.state_manager.update(self.state,result)
 
-        self.__current_question = None
+        self._current_question = None
+        self._current_answer_key = None
 
         return result
 
-    def has_questions(self):
-        return self.generator.has_questions()
+    def has_questions(self) -> bool:
+        return self.question_generator.has_questions()
 
-    def is_finished(self):
+    def is_finished(self) -> bool:
         return self.state.game_over or not self.has_questions()

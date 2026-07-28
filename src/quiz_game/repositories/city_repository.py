@@ -9,7 +9,7 @@ class CityRepository:
         self.path = path
         self._cities = None
     
-    def load_all(self, as_dict=False):
+    def load_all(self, as_dict: bool=False):
 
         if self._cities is None:
             with open(self.path, encoding="utf-8") as f:
@@ -22,7 +22,7 @@ class CityRepository:
 
         return self._cities.copy()
 
-    def load_all_capitals(self, as_dict: bool = False) -> list[City]:
+    def load_all_capitals(self, as_dict: bool=False) -> list[City]:
         cities = self.load_all()
         capitals = [city for city in cities if city.is_capital]
 

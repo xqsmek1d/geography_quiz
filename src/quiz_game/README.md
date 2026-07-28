@@ -75,8 +75,8 @@ This builder structure allows new question categories to be added independently.
 
 Contains the interface for interacting with the quiz via the command-line by:
 
-- displaying questions *(WIP)*
-- receiving user input *(WIP)*
+- displaying questions
+- receiving user input
 - displaying results *(WIP)*
 - starting quiz sessions *(WIP)*
 
@@ -164,8 +164,8 @@ Creates incorrect answers for multiple-choice questions.
 Distractor strategies can include:
 
 - random
-- same region *(WIP)*
-- same subregion *(WIP)*
+- same region
+- same subregion
 *- same country (specific for some categories, to be implemented)*
 *- similar difficulty (to be implemented)*
 
@@ -289,8 +289,8 @@ assets/
 Currently supported question categories include:
 
 - Country → Capital
-- Capital → Country *(WIP)* 
-- Flag → Country *(WIP)* 
+- Capital → Country
+- Flag → Country
 - Flag → Capital *(WIP)* 
 - Map outline → Country *(WIP)* 
 - Map highlight → Country *(WIP)* 
@@ -337,16 +337,16 @@ config/enums.py
 2. Create a new builder:
 
 ```
-builders/new_question_builder.py
+builders/<new_question_builder>.py
 ```
 
-3. Register the builder:
+3. Register the builder in main using:
 
 ```
 builders/question_builder_registry.py
 ```
 
-4. Add required repositories or pools.
+4. Add required repositories or pools if needed.
 
 ---
 

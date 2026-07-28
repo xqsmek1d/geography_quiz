@@ -4,7 +4,7 @@ import os
 import geopandas as gpd
 
 from utils.paths import COUNTRIES_CSV, CITIES_CORRECTIONS_JSON, CITIES_GEOJSON, CITIES_JSON
-from utils.validation.known_data_exceptions import NO_CAPITAL_INFO
+from quiz_game.config.known_data_exceptions import NO_CAPITAL_INFO
 from quiz_game.repositories.city_repository import CityRepository
 from quiz_game.models.city import City
 from utils.corrections.country_transformations import normalize_region, normalize_subregion

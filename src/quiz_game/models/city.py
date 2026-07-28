@@ -4,6 +4,10 @@ from shapely import Point
 class City(BaseModel): 
     id: str
     name: str
+    optional_prefix: str | None = None
+    optional_suffix: str | None = None
+    optional_names: list[str] | None = None
+
     country_id: str
 
     is_capital: bool
