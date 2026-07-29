@@ -28,9 +28,9 @@ class GameLoop:
 
                 result = self.session.submit_answer(answer)
 
-                display_result(result)
+                display_result(result=result)
 
-            display_summary(session.state)
+            display_summary(self.session.state)
 
         finally: 
             self.viewer.close()

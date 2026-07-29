@@ -16,7 +16,7 @@ class ImageViewer:
             image_path = PLACEHOLDER_IMAGE_PATH
 
         image = Image.open(image_path)
-        image.thumbnail((500, 500))
+        image.thumbnail((800, 800))
         self.photo = ImageTk.PhotoImage(image)
         self.label.configure(image=self.photo) 
             

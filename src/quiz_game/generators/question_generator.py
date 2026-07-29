@@ -34,9 +34,12 @@ class QuestionGenerator():
         return question_pools
 
     def next_question(self) -> Question:
-
+        
         # Pick a category of question based on available items in the category pools
-        available_question_categories = [category for category, pool in self.question_pools.items() if not pool.is_empty()]
+        if self.settings.gameplay.infinite_mode:
+            available_question_categories = self.settings.question_categories
+        else:
+            available_question_categories = [category for category, pool in self.question_pools.items() if not pool.is_empty()]
 
         if not available_question_categories:
             raise RuntimeError("ERROR: no questions remaining!")
@@ -53,3 +56,13 @@ class QuestionGenerator():
         question_data = builder.build(entity_id)
 
         return self.answer_generator.create(question_data)
+
+    def recycle_question(self, category: QuestionCategory, entity_id: str,):
+        pool = self.question_pools[category]
+        pool.recycle(entity_id)
+
+    def has_questions(self):
+        if self.settings.gameplay.infinite_mode:
+            return True
+
+        return any(not pool.is_empty() for pool in self.question_pools.values())

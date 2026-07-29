@@ -2,6 +2,8 @@ from quiz_game.models.game_state import GameState
 
 from quiz_game.models.settings import QuizSettings
 from quiz_game.models.question import Question
+from quiz_game.models.answer_result import AnswerResult
+
 from quiz_game.config.enums import AnswerType
 from quiz_game.config.constants import MC_LABELS
 
@@ -80,6 +82,8 @@ def display_question(question: Question, question_count: int | None, viewer: Ima
         lines.apppend("\n====== Question ======")
     else:
         lines.append(f"\n====== Question {question_count} ======")
+
+    viewer.show(question.image)
     
     lines.append("")
     lines.append(question.prompt)
@@ -96,10 +100,9 @@ def display_question(question: Question, question_count: int | None, viewer: Ima
 
     print("\n".join(lines))
 
+def display_result(result: AnswerResult):
 
-def display_result(self, result):
-
-    if result.correct:
+    if result.is_correct:
         print("Correct!")
     else:
         print(f"Incorrect. " f"The answer was {result.correct_answer}")

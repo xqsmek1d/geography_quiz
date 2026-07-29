@@ -6,7 +6,6 @@ from quiz_game.generators.distractor_generator import DistractorGenerator
 from quiz_game.models.question import Question
 from quiz_game.models.question_data import QuestionData
 from quiz_game.models.answer_key import AnswerKey
-from quiz_game.config.enums import AnswerType
 
 
 class AnswerGenerator:
@@ -18,6 +17,28 @@ class AnswerGenerator:
         self.distractor_generator = distractor_generator
         self.rng = rng
 
+    def create_accepted_answers(self, question_data: QuestionData,) -> list[str]:
+
+        answers = [question_data.correct_answer,]
+
+        # Create an optional answer using the prefix
+        if question_data.optional_prefix: answers.append(
+                f"{question_data.optional_prefix} {question_data.correct_answer}"
+            )
+
+        # Create an optional answer using the suffix
+        if question_data.optional_suffix: answers.append(
+                f"{question_data.correct_answer} {question_data.optional_suffix}"
+            )
+
+        # Create an optional answer using the prefix and suffix
+        if (question_data.optional_prefix and question_data.optional_suffix): answers.append(
+                f"{question_data.optional_prefix} {question_data.correct_answer} {question_data.optional_suffix}"
+            )
+
+        if question_data.optional_names: answers.extend(question_data.optional_names)
+
+        return list(dict.fromkeys(answer.strip() for answer in answers if answer.strip()))
 
     def create(self, question_data: QuestionData,) -> tuple[Question,AnswerKey]:
 
@@ -40,6 +61,7 @@ class AnswerGenerator:
             category=question_data.category,
             answer_type=AnswerType.OPEN,
             prompt=question_data.prompt,
+            question_entity_id=question_data.question_entity_id,
             image=question_data.image,
             metadata=question_data.metadata,
         )
@@ -47,7 +69,7 @@ class AnswerGenerator:
         answer_key = AnswerKey(
             answer_pool_type=question_data.answer_pool_type,
             answer_type=AnswerType.OPEN,
-            accepted_answers= ...
+            accepted_answers=self.create_accepted_answers(question_data),
             correct_answer=question_data.correct_answer,
             correct_answer_id=question_data.correct_answer_id,
 
@@ -69,14 +91,16 @@ class AnswerGenerator:
             category=question_data.category,
             answer_type=AnswerType.MC,
             prompt=question_data.prompt,
+            question_entity_id=question_data.question_entity_id,
             options=options,
             image=question_data.image,
+            metadata=question_data.metadata,
         )
 
         answer_key = AnswerKey(
             answer_pool_type=question_data.answer_pool_type,
             answer_type=AnswerType.MC,
-            accepted_answers= ...
+            accepted_answers=self.create_accepted_answers(question_data),
             correct_answer=question_data.correct_answer,
             correct_answer_id=question_data.correct_answer_id,
             correct_option_index=options.index(question_data.correct_answer),

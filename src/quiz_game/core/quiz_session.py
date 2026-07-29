@@ -16,7 +16,7 @@ class QuizSession:
         self,
         settings: QuizSettings,
         question_generator: QuestionGenerator,
-        answer_service: AnswerService,
+        answer_evaluator: AnswerEvaluator,
     ):
 
         self.settings = settings
@@ -26,7 +26,7 @@ class QuizSession:
         self._current_question: Question | None = None
         self._current_answer_key: AnswerKey | None = None
 
-        self.answer_service = answer_service
+        self.answer_evaluator = answer_evaluator
         self.state_manager = StateManager()
 
     def get_current_question(self) -> Question | None:
@@ -57,6 +57,9 @@ class QuizSession:
             raise RuntimeError("ERROR: no active question or answer key!")
 
         result = self.answer_evaluator.evaluate(self._current_answer_key, answer,)
+
+        if not result.is_correct and self.settings.gameplay.question_recycling:
+            self.question_generator.recycle_question(self._current_question.category, self._current_question.question_entity_id)
 
         self.state_manager.update(self.state,result)
 

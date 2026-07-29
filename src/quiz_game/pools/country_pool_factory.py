@@ -14,4 +14,4 @@ class CountryPoolFactory:
         if not countries:
             raise RuntimeError(f"ERROR: no countries available for category {category}")
 
-        return QuestionPool(list(countries.keys()), rng_engine=rng,)
+        return QuestionPool(list(countries.keys()), rng_engine=rng, infinite_mode=settings.gameplay.infinite_mode)

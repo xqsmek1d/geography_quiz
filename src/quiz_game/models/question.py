@@ -7,6 +7,8 @@ class Question(BaseModel):
 
     prompt: str
 
+    question_entity_id: str
+
     question_id: str | None = None
 
     options: list[str] = Field(default_factory=list)

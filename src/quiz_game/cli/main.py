@@ -27,8 +27,6 @@ from quiz_game.repositories.city_repository import CityRepository
 from quiz_game.generators.answer_generator import AnswerGenerator
 from quiz_game.generators.question_generator import QuestionGenerator
 
-from quiz_game.services.answer_service import AnswerService
-from quiz_game.services.answer_resolver import AnswerResolver
 from quiz_game.services.answer_evaluator import AnswerEvaluator
 
 def main():

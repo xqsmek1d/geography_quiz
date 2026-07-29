@@ -12,8 +12,13 @@ class QuestionData(BaseModel):
     
     prompt: str
 
+    question_entity_id: str
+
     correct_answer: str
     correct_answer_id: str | None = None
+    optional_prefix: str | None = None
+    optional_suffix: str | None = None
+    optional_names: list[str] = Field(default_factory=list)
 
     options: list[str] = Field(default_factory=list)
     correct_option_index: int | None = None

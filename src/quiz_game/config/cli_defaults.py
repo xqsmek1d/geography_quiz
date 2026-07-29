@@ -5,6 +5,7 @@ from quiz_game.config.enums import (
     QuizMode,
     QuestionCategory,
     ALL_QUESTION_CATEGORIES,
+    AnswerType,
     ALL_ANSWER_TYPES,
     DistractorStrategy,
     ALL_DISTRACTOR_STRATEGIES,
@@ -23,18 +24,18 @@ CLI_CUSTOM_GAMEPLAY_SETTINGS = GameplaySettings(
 
 CLI_LOCATION_FILTER = LocationFilter(
     include_regions = set(["Europe"]),
-    include_subregions = set(["South-East Asia", "North-America"]),
+    #include_subregions = set(),
 )
 
 CLI_QUIZ_SETTINGS = QuizSettings(
     quiz_mode=QuizMode.PRACTICE,
     #question_categories=ALL_QUESTION_CATEGORIES,
-    #question_categories=[QuestionCategory.COUNTRY_CAPITAL,],
-    question_categories=[QuestionCategory.CAPITAL_COUNTRY,],
-    answer_types=ALL_ANSWER_TYPES,
-    distractor_strategies=ALL_DISTRACTOR_STRATEGIES,
+    question_categories=(QuestionCategory.COUNTRY_CAPITAL,),
+    #answer_types=ALL_ANSWER_TYPES,
+    answer_types=(AnswerType.MC,),
+    distractor_strategies= (DistractorStrategy.SAME_REGION,),
     gameplay=GameplaySettings(),
     location_filter=CLI_LOCATION_FILTER,
-    difficulty_level=DifficultyLevel.NORMAL,
+    difficulty_level=DifficultyLevel.EASY,
     difficulty_progression=DifficultyProgression.FIXED,
 )

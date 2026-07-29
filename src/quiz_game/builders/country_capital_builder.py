@@ -15,8 +15,12 @@ class CountryCapitalBuilder:
             category=QuestionCategory.COUNTRY_CAPITAL,
             answer_pool_type=PoolType.CAPITAL,
             prompt=f"What is the capital of {country.name}?",
+            question_entity_id=country.id,
             correct_answer=capital.name,
             correct_answer_id=capital.id,
+            optional_prefix=capital.optional_prefix,
+            optional_suffix=capital.optional_suffix,
+            optional_names=capital.optional_names or [],
             metadata={
                 "country_id": country.id
             }
