@@ -13,6 +13,8 @@ class City(BaseModel):
     is_capital: bool
     is_subcapital: bool | None = None
 
+    difficulty_score: float | None = None
+
     admin_id: str | None = None
     admin_name: str | None = None
 

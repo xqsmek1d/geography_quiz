@@ -11,6 +11,16 @@ class ImageViewer:
         self.label = tk.Label(self.root)
         self.label.pack()
     
+    def start(self):
+
+        image = Image.open(PLACEHOLDER_IMAGE_PATH)
+        image.thumbnail((800, 800))
+        self.photo = ImageTk.PhotoImage(image)
+        self.label.configure(image=self.photo) 
+
+        # keep window responsive 
+        self.root.update() 
+        
     def show(self, image_path: str):
         if (image_path is None) or (not Path(image_path).exists()):
             image_path = PLACEHOLDER_IMAGE_PATH

@@ -1,9 +1,9 @@
 import random
+import os
 
 from quiz_game.config.loader import load_cli_settings
-from quiz_game.cli.display import display_settings
+
 from quiz_game.core.quiz_session import QuizSession
-from quiz_game.cli.game_loop import GameLoop
 
 from quiz_game.generators.distractor_generator import DistractorGenerator
 
@@ -29,19 +29,29 @@ from quiz_game.generators.question_generator import QuestionGenerator
 
 from quiz_game.services.answer_evaluator import AnswerEvaluator
 
+from quiz_game.cli.display import display_settings
+from quiz_game.cli.image_viewer import ImageViewer
+from quiz_game.cli.settings_menu import SettingsMenu
+from quiz_game.cli.game_loop import GameLoop
+
 def main():
+    
+    os.system("clear")
+
+    viewer = ImageViewer()
+    viewer.start()
 
     rng = random.Random()
 
     settings = load_cli_settings()
-
-    display_settings(settings)
+    #display_settings(settings)
+    settings = SettingsMenu(settings.model_copy(deep=True)).run()
 
     country_repository = CountryRepository()
-    city_repository = CityRepository()
+    city_repository = CityRepository(country_repository=country_repository)
     repositories = RepositoryRegistry(country_repository=country_repository, city_repository=city_repository)
 
-    distractor_generator = DistractorGenerator(repositories=repositories, rng=rng)
+    distractor_generator = DistractorGenerator(settings=settings, repositories=repositories, rng=rng)
 
     answer_generator = AnswerGenerator(
         answer_types=settings.answer_types,
@@ -74,7 +84,7 @@ def main():
 
     session = QuizSession(settings, question_generator=question_generator, answer_evaluator=answer_evaluator)
 
-    game_loop = GameLoop(session)
+    game_loop = GameLoop(session, viewer=viewer)
 
     game_loop.run()
 

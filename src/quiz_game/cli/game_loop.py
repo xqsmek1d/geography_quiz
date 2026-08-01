@@ -7,10 +7,10 @@ from quiz_game.core.quiz_session import QuizSession
 
 class GameLoop:
 
-    def __init__(self, session: QuizSession):
+    def __init__(self, session: QuizSession, viewer: ImageViewer):
         self.session = session
         self.input_handler = InputHandler()
-        self.viewer = ImageViewer()
+        self.viewer = viewer
 
     def run(self):
 
@@ -18,6 +18,8 @@ class GameLoop:
 
         try:
             while not self.session.is_finished():
+
+                self.viewer.start()
                 
                 question = self.session.next_question()
 

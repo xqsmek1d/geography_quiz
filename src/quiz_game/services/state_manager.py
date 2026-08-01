@@ -3,7 +3,7 @@ from quiz_game.models.game_state import GameState
 
 class StateManager():
     def __init__(self):
-        print("\nSTATE MANAGER INITIATED")
+        return
 
     def update(self, game_state: GameState, result: AnswerResult):
-        print("\nSTATE MANAGER SHOULD UPDATE THE GAME STATE")
+        return

@@ -1,10 +1,12 @@
+import os
+
 from quiz_game.models.game_state import GameState
 
 from quiz_game.models.settings import QuizSettings
 from quiz_game.models.question import Question
 from quiz_game.models.answer_result import AnswerResult
 
-from quiz_game.config.enums import AnswerType
+from quiz_game.config.enums import AnswerType, MatchType
 from quiz_game.config.constants import MC_LABELS
 
 from quiz_game.cli.image_viewer import ImageViewer
@@ -12,7 +14,7 @@ from quiz_game.cli.image_viewer import ImageViewer
 
 def display_settings(settings: QuizSettings):
     lines = [
-        "\n===== QUIZ SETTINGS =====",
+        "\n===== QUIZ SETTINGS =====\n",
         f'Quiz mode ({settings.quiz_mode.value.upper()}):'
     ]
 
@@ -41,12 +43,21 @@ def display_settings(settings: QuizSettings):
     lines.append(f'   - infinite mode: {settings.gameplay.infinite_mode}')
     
     # Make difficulty string(s)
-    lines.append(f'\nQuestion difficulty: {settings.difficulty_level}')
+    lines.append(f'\nQuestion difficulty: {settings.difficulty_level.value.upper()}')
 
     # Make region selection string(s)
-    lines.append(' ')
-    lines.append(f'Included regions: {settings.location_filter.include_regions}')
-    lines.append(f'Included subregions: {settings.location_filter.include_subregions}')
+    lines.append(f'\nLocation filter:')
+    if settings.location_filter.include_regions:
+        regions = ", ".join(sorted(settings.location_filter.include_regions))
+        lines.append(f"   - regions: {regions}")
+    else:
+        lines.append("   - regions: all")
+
+    if settings.location_filter.include_subregions:
+        subregions = ", ".join(sorted(settings.location_filter.include_subregions))
+        lines.append(f"   - subregions: {subregions}")
+    else:
+        lines.append("   - subregions: all")
 
     # Make question category string(s)
     if len(settings.question_categories) > 1:
@@ -65,17 +76,17 @@ def display_settings(settings: QuizSettings):
         lines.append(f'\nAnswer type: {settings.answer_types[0].value.lower()}',)
     
     # Make distractor strategy string(s)
-    if len(settings.distractor_strategies) > 1 and (AnswerType.MC in settings.answer_types or AnswerType.MIXED in settings.answer_types):
+    if len(settings.distractor_strategies) > 1 and (AnswerType.MC in settings.answer_types):
         lines.append(f'\nDistractor strategies:')
         lines.append("\n".join(f"   - {distractor_strategy.name.lower().replace("_"," ")}" for distractor_strategy in settings.distractor_strategies))
 
-    elif AnswerType.MC in settings.answer_types or AnswerType.MIXED in settings.answer_types:
+    elif AnswerType.MC in settings.answer_types:
         lines.append(f'\nMultiple choice distraction: {settings.distractor_strategies[0].name.lower().replace("_"," ")}')
 
     print("\n".join(lines))
 
 def display_question(question: Question, question_count: int | None, viewer: ImageViewer):
-    
+
     lines = []
 
     if question_count is None:
@@ -102,10 +113,16 @@ def display_question(question: Question, question_count: int | None, viewer: Ima
 
 def display_result(result: AnswerResult):
 
-    if result.is_correct:
+    os.system("clear")
+
+    if result.match_type == MatchType.EXACT:
         print("Correct!")
+    elif result.match_type == MatchType.ACCENT_INSENSITIVE:
+        print(f"Correct, but I think the accents were slighlty off. It should have been '{result.correct_answer}'")
+    elif result.match_type == MatchType.SPELLING_MISTAKE:
+        print(f"Correct, but I think you made a small spelling mistake. It should have been '{result.correct_answer}'")
     else:
-        print(f"Incorrect. " f"The answer was {result.correct_answer}")
+        print(f"Incorrect. The answer was {result.correct_answer}")
 
 def display_score():
     raise NotImplementedError

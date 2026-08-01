@@ -1,8 +1,13 @@
+import random
+
 from quiz_game.config.enums import DistractorStrategy, PoolType
+from quiz_game.models.settings import QuizSettings
 
 class DistractorGenerator:
 
-    def __init__(self, repositories, rng):
+    def __init__(self, settings: QuizSettings, repositories, rng: random.Random):
+        
+        self.settings = settings
         self.repositories = repositories
         self.rng = rng
 
@@ -10,10 +15,16 @@ class DistractorGenerator:
 
         match pool_type:
             case PoolType.COUNTRY:
-                return self.repositories.country.load_all()
+                return self.repositories.country.load_with_filters(
+                    difficulty_level=self.settings.difficulty_level,
+                )
+                #return self.repositories.country.load_all()
 
             case PoolType.CAPITAL:
-                return self.repositories.city.load_all_capitals()
+                return self.repositories.city.load_all_capitals(
+                    difficulty_level=self.settings.difficulty_level,
+                )
+                #return self.repositories.city.load_all_capitals()
 
             case _:
                 raise NotImplementedError
@@ -99,8 +110,8 @@ class DistractorGenerator:
                 candidates = [country for country in countries if (country.region == answer_region and country.id not in excluded_ids)]
 
             case PoolType.CAPITAL:
-                capitals = self.repositories.city.load_all_capitals(as_dict = True)
-                countries = self.repositories.country.load_all(as_dict = True)
+                capitals = self.repositories.city.load_all_capitals(as_dict = True, difficulty_level=self.settings.difficulty_level)
+                countries = self.repositories.country.load_with_filters(as_dict = True, difficulty_level=self.settings.difficulty_level)
                 
                 country_id_candidates = self._country_ids_with_attribute("region", answer_region,)
                 candidates = [capital for capital in capitals.values() if (capital.country_id in country_id_candidates and capital.id not in excluded_ids)]
@@ -134,8 +145,8 @@ class DistractorGenerator:
                 candidates = [country for country in countries if (country.subregion == answer_subregion and country.id not in excluded_ids)]
 
             case PoolType.CAPITAL:
-                capitals = self.repositories.city.load_all_capitals(as_dict = True)
-                countries = self.repositories.country.load_all(as_dict = True)
+                capitals = self.repositories.city.load_all_capitals(as_dict = True, difficulty_level=self.settings.difficulty_level)
+                countries = self.repositories.country.load_with_filters(as_dict = True, difficulty_level=self.settings.difficulty_level)
                 
                 country_id_candidates = self._country_ids_with_attribute("subregion", answer_subregion,)
                 candidates = [capital for capital in capitals.values() if (capital.country_id in country_id_candidates and capital.id not in excluded_ids)]

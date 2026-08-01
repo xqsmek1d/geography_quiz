@@ -78,7 +78,8 @@ Contains the interface for interacting with the quiz via the command-line by:
 - displaying questions
 - receiving user input
 - displaying results *(WIP)*
-- starting quiz sessions *(WIP)*
+- starting quiz sessions
+- changing gameplay options beforehand *(WIP)*
 
 ## Files
 
@@ -122,7 +123,7 @@ Controls a single quiz session by:
 
 - starting a quiz
 - requesting questions
-- processing answers *(WIP)*
+- processing answers
 - updating game state *(WIP)*
 - tracking progress *(WIP)*
 
@@ -198,7 +199,7 @@ A pool represents a collection of possible questions that can be selected during
 - preventing repeated questions
 - tracking remaining questions
 - providing questions to generators
-- recycling/resetting questions if needed *(WIP)*
+- recycling/resetting questions if specified by quiz settings
 
 ## Files
 
@@ -235,9 +236,10 @@ Contains supporting logic.
 
 Checks whether submitted answers are correct:
 
-- exact matching  *(WIP)* 
-- answer normalisation  *(WIP)* 
-- alternative answers  *(WIP)* 
+- exact matching
+- case insensitive 
+- spelling mistakes
+- incorrect 
 
 ## `question_pool.py`
 
@@ -293,7 +295,7 @@ Currently supported question categories include:
 - Flag → Country
 - Flag → Capital *(WIP)* 
 - Map outline → Country *(WIP)* 
-- Map highlight → Country *(WIP)* 
+- Map highlight → Country
 - City → Country *(WIP)* 
 - Landmark → City *(WIP)* 
 - Landmark → Country *(WIP)* 
@@ -312,7 +314,7 @@ Supported answer formats:
 
 Supported quiz modes include:
 
-- Practice *(WIP)* 
+- Practice 
 - Survival *(WIP)* 
 - Time attack *(WIP)* 
 - Hardcore *(WIP)* 

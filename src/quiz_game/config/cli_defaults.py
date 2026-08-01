@@ -29,11 +29,12 @@ CLI_LOCATION_FILTER = LocationFilter(
 
 CLI_QUIZ_SETTINGS = QuizSettings(
     quiz_mode=QuizMode.PRACTICE,
-    #question_categories=ALL_QUESTION_CATEGORIES,
-    question_categories=(QuestionCategory.COUNTRY_CAPITAL,),
-    #answer_types=ALL_ANSWER_TYPES,
-    answer_types=(AnswerType.MC,),
-    distractor_strategies= (DistractorStrategy.SAME_REGION,),
+    question_categories=ALL_QUESTION_CATEGORIES,
+    #question_categories=(QuestionCategory.COUNTRY_CAPITAL,),
+    answer_types=ALL_ANSWER_TYPES,
+    #answer_types=(AnswerType.MC,),
+    distractor_strategies=ALL_DISTRACTOR_STRATEGIES,
+    #distractor_strategies= (DistractorStrategy.SAME_REGION,),
     gameplay=GameplaySettings(),
     location_filter=CLI_LOCATION_FILTER,
     difficulty_level=DifficultyLevel.EASY,

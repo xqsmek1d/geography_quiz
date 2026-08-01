@@ -46,7 +46,7 @@ class CountryRepository:
 
         # filter difficulty
         if difficulty_level:
-            countries = [country for country in countries if country.difficulty_score < difficulty_level.value]
+            countries = [country for country in countries if country.difficulty_score < difficulty_level.max_difficulty_score]
 
         # filter locations
         if location_filter:

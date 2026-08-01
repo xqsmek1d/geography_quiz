@@ -23,20 +23,20 @@ class AnswerGenerator:
 
         # Create an optional answer using the prefix
         if question_data.optional_prefix: answers.append(
-                f"{question_data.optional_prefix} {question_data.correct_answer}"
+                f"{question_data.optional_prefix.strip()} {question_data.correct_answer.strip()}"
             )
 
         # Create an optional answer using the suffix
         if question_data.optional_suffix: answers.append(
-                f"{question_data.correct_answer} {question_data.optional_suffix}"
+                f"{question_data.correct_answer.strip()} {question_data.optional_suffix.strip()}"
             )
 
         # Create an optional answer using the prefix and suffix
         if (question_data.optional_prefix and question_data.optional_suffix): answers.append(
-                f"{question_data.optional_prefix} {question_data.correct_answer} {question_data.optional_suffix}"
+                f"{question_data.optional_prefix.strip()} {question_data.correct_answer.strip()} {question_data.optional_suffix.strip()}"
             )
 
-        if question_data.optional_names: answers.extend(question_data.optional_names)
+        if question_data.optional_names: answers.extend(list(name.strip() for name in question_data.optional_names))
 
         return list(dict.fromkeys(answer.strip() for answer in answers if answer.strip()))
 

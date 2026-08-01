@@ -36,10 +36,18 @@ class QuestionPool:
         if not self.is_empty():
             return False
 
+        previous_id = self.used[-1] if self.used else None
+
         self.remaining = self.used.copy()
         self.used.clear()
 
         self.rng.shuffle(self.remaining)
+
+        # Prevent a repeated question upon reset
+        if (previous_id is not None and len(self.remaining) > 1 and self.remaining[-1] == previous_id):
+            other_index = self.rng.randrange(len(self.remaining) - 1)
+
+            self.remaining[-1], self.remaining[other_index] = (self.remaining[other_index], self.remaining[-1])
 
         return True
 

@@ -11,6 +11,7 @@ from utils.corrections.country_transformations import normalize_region, normaliz
 from utils.corrections.apply_corrections import apply_corrections
 from utils.common.json_loader import load_json
 from utils.corrections.data_parsers import slugify, sanitise_string, parse_fips
+from quiz_game.algorithms.city_difficulty import get_capital_difficulty
 
 def build_capitals():
     capitals = []
@@ -38,6 +39,10 @@ def build_capitals():
             )
 
             capitals.append(capital)
+
+    # Assign a difficulty score for each capital
+    for capital in capitals:
+        capital.difficulty_score = get_capital_difficulty(capital)
 
     # Apply corrections
     corrections = load_json(CITIES_CORRECTIONS_JSON)
@@ -83,6 +88,7 @@ def update_capital_info():
         existing_city.population = city.POP
         existing_city.admin_id = city.GMI_ADMIN
         existing_city.admin_name = city.ADMIN_NAME
+
         if city.geometry is not None:
             existing_city.latitude = city.geometry.y
             existing_city.longitude = city.geometry.x

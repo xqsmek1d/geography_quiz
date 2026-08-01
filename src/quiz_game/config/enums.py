@@ -67,16 +67,28 @@ class AnswerType(StrEnum):
     #CLOSED = "closed" # to be implemented
 
 class DistractorStrategy(Enum):
-    RANDOM = 0
-    SAME_REGION = 1
-    SAME_SUBREGION = 2
+    RANDOM = "random"
+    SAME_REGION = "same region (if possible)"
+    SAME_SUBREGION = "same subregion (if possible)"
     #SAME_COUNTRY = 3
 
-class DifficultyLevel(Enum):
-    EASY = 0.3
-    NORMAL = 0.5
-    HARD = 0.7
-    WIZARD = 1
+class DifficultyLevel(StrEnum):
+    EASY = "easy"
+    NORMAL = "normal"
+    HARD = "hard"
+    WIZARD = "wizard"
+
+    @property
+    def max_difficulty_score(self):
+        match self:
+            case DifficultyLevel.EASY:
+                return 0.3
+            case DifficultyLevel.NORMAL:
+                return 0.5
+            case DifficultyLevel.HARD:
+                return 0.7
+            case DifficultyLevel.WIZARD:
+                return 1.0
 
 class DifficultyProgression(StrEnum):
     FIXED = "fixed"
@@ -86,7 +98,7 @@ class MatchType(StrEnum):
     EXACT = "exact"                             # valid name, exact characters used
     ACCENT_INSENSITIVE = "accent_insensitive"   # correct name, only accents differ (Aland instead of Åland)
     SPELLING_MISTAKE = "spelling mistake"       # small typo such as swapped letters or a missing character (Ålnd or Ålnad instead of Åland)
-    FUZZY = "fuzzy"                             # broadly similar but less certain (Mehiko instead of Mexico)
+    #FUZZY = "fuzzy"                             # broadly similar but less certain (Mehiko instead of Mexico)
     NO_MATCH = "no_match"                       # cannot identify a single broad match
 
     @property 
@@ -97,9 +109,9 @@ class MatchType(StrEnum):
             case MatchType.ACCENT_INSENSITIVE:
                 return 0.9
             case MatchType.SPELLING_MISTAKE:
-                return 0.8
-            case MatchType.FUZZY:
-                return 0.5
+                return 0.7
+            #case MatchType.FUZZY:
+            #    return 0.5
             case MatchType.NO_MATCH:
                 return 0.0
             case _:
