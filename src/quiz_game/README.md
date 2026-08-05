@@ -53,6 +53,8 @@ Difficulty is based on factors derived from known information on countries:
 - recognisability
 - geographical properties
 
+
+
 ---
 
 # `builders`
@@ -79,7 +81,7 @@ Contains the interface for interacting with the quiz via the command-line by:
 - receiving user input
 - displaying results *(WIP)*
 - starting quiz sessions
-- changing gameplay options beforehand *(WIP)*
+- changing gameplay options beforehand
 
 ## Files
 
@@ -196,6 +198,7 @@ Controls question availability.
 
 A pool represents a collection of possible questions that can be selected during a quiz by:
 
+- selecting repository data based on difficulty and region
 - preventing repeated questions
 - tracking remaining questions
 - providing questions to generators
@@ -247,7 +250,7 @@ Manages available questions during a quiz.
 
 ## `state_manager.py`
 
-Handles changes to the current game state such as: *(to be implemented)*
+Handles changes to the current game state such as: *(WIP)*
 
 - lives remaining
 - score
@@ -314,13 +317,14 @@ Supported answer formats:
 
 Supported quiz modes include:
 
-- Practice 
+- Practice *(Difficulty progression option still to be implemented)*
 - Survival *(WIP)* 
 - Time attack *(WIP)* 
 - Hardcore *(WIP)* 
 - Speedrun *(WIP)* 
 - Marathon *(WIP)* 
 - Custom *(WIP)* 
+- Random *(to be implemented)*
 
 ---
 

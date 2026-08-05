@@ -1,6 +1,6 @@
 from quiz_game.cli.input_handler import InputHandler
-from quiz_game.cli.display import display_question, display_result, display_summary
-from quiz_game.cli.display import ImageViewer
+from quiz_game.cli.display import display_question, display_result, display_game_state, display_summary, display_ending
+from quiz_game.cli.image_viewer import ImageViewer
 
 from quiz_game.core.quiz_session import QuizSession
 
@@ -15,24 +15,33 @@ class GameLoop:
     def run(self):
 
         question_count = 0
+        continue_playing = True
 
         try:
-            while not self.session.is_finished():
+            while continue_playing:
 
-                self.viewer.start()
-                
-                question = self.session.next_question()
+                while not self.session.is_finished():
 
-                question_count += 1
-                display_question(question, question_count, self.viewer)
+                    self.viewer.start()
+                    
+                    display_game_state(self.session.state)
 
-                answer = self.input_handler.get_answer(question)
+                    question = self.session.next_question()
 
-                result = self.session.submit_answer(answer)
+                    question_count += 1
+                    display_question(question, question_count, self.viewer)
 
-                display_result(result=result)
+                    answer = self.input_handler.get_answer(question)
 
-            display_summary(self.session.state)
+                    result = self.session.submit_answer(answer)
+
+                    display_result(result=result)
+
+                display_summary(self.session.state)
+
+                continue_playing = display_ending()
+
+
 
         finally: 
             self.viewer.close()

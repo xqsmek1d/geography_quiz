@@ -1,4 +1,4 @@
-﻿name,optional_prefix,optional_suffix,optional_name,iso3,iso2,fips,capital,region,subregion,demonym,population,area_sq_km,latitude,longitude,gdp
+name,optional_prefix,optional_suffix,optional_name,iso3,iso2,fips,capital,region,subregion,demonym,population,area_sq_km,latitude,longitude,gdp
 Afghanistan,the Islamic Emirate of,,,AFG,AF,AF,Kabul,Asia,Southern Asia,Afghan,43844000,647500,3300000000,6500000000,
 Åland,the,Islands,,ALA,AX,AX,Mariehamn,Europe,Northern Europe,Ålandic or Ålandish,30654,1580,6011666700,1990000000,
 Albania,the Republic of,,,ALB,AL,AL,Tirana,Europe,Southern Europe,Albanian ,2335930,28748,4100000000,2000000000,28372
@@ -15,7 +15,7 @@ Aruba,the Country of,,,ABW,AW,AA,Oranjestad,Americas,Caribbean,Aruban,110625,193
 Australia,the Commonwealth of,,,AUS,AU,AS,Canberra,Oceania,Australia and New Zealand,Australian,27801023,7686850,-2700000000,13300000000,1771681
 Austria,the Republic of,,,AUT,AT,AU,Vienna,Europe,Western Europe,Austrian,9220882,83858,4733333333,1333333333,534301
 Azerbaijan,the Republic of,,,AZE,AZ,AJ,Baku,Asia,Western Asia,Azerbaijani,10266627,86600,,,
-Bahamas,the Commonwealth of The,,,BHS,BS,BF,Nassau,Americas,Caribbean,Bahamian,398165,13940,2425000000,-7600000000,
+The Bahamas,the Commonwealth of,,,BHS,BS,BF,Nassau,Americas,Caribbean,Bahamian,398165,13940,2425000000,-7600000000,
 Bahrain,the Kingdom of,,,BHR,BH,BA,Manama,Asia,Western Asia,Bahraini,1603260,665,2600000000,5055000000,47829
 Bangladesh,the People's Republic of,,,BGD,BD,BG,Dhaka,Asia,Southern Asia,Bangladeshi,169828911,144000,2400000000,9000000000,467218
 Barbados,,,,BRB,BB,BB,Bridgetown,Americas,Caribbean,Barbadian,261692,431,1316666666,-5953333333,7552
@@ -31,8 +31,8 @@ Bosnia and Herzegovina,,,Bosnia-Herzegovina,BIH,BA,BK,Sarajevo,Europe,Southern E
 Botswana,the Republic of,,,BWA,BW,BC,Gaborone,Africa,Southern Africa,Batswana or Motswana,2359609,581730,,,
 Bouvet Island,,,,BVT,BV,BV,#N/A,#N/A,#N/A,Bouvet Island,0,49,-5443333333,340000000,
 Brazil,the Federative Republic of,,,BRA,BR,BR,Brasília,Americas,South America,Brazilian,213421037,8511965,-1000000000,-5500000000,2125958
-British Indian Ocean Territory,the,,,IOT,IO,IO,Diego Garcia,Africa,Eastern Africa,#N/A,6,60,-600000000,7150000000,
-British Virgin Islands,the,,the Virgin Islands,VGB,VG,VI,Road Town,Americas,Caribbean,Virgin Islander,39471,153,1843138300,-6462305000,
+the British Indian Ocean Territory,,,,IOT,IO,IO,Diego Garcia,Africa,Eastern Africa,#N/A,6,60,-600000000,7150000000,
+the British Virgin Islands,,,the Virgin Islands,VGB,VG,VI,Road Town,Americas,Caribbean,Virgin Islander,39471,153,1843138300,-6462305000,
 Brunei,,Darussalam,,BRN,BN,BX,Bandar Seri Begawan,Asia,South-Eastern Asia,Bruneian,458600,5770,450000000,11466666666,16007
 Bulgaria,the Republic of,,,BGR,BG,BU,Sofia,Europe,Eastern Europe,Bulgarian,6423207,110910,4300000000,2500000000,117007
 Burkina Faso,,,,BFA,BF,UV,Ouagadougou,Africa,Western Africa,Burkinabé,24070553,274200,1300000000,-200000000,27056
@@ -41,28 +41,28 @@ Cabo Verde,the Republic of,,Cape Verde,CPV,CV,CV,Praia,Africa,Western Africa,Cap
 Cambodia,the Kingdom of,,,KHM,KH,CB,Phnom Penh,Asia,South-Eastern Asia,Cambodian,17577760,181040,1300000000,10500000000,49799
 Cameroon,the Republic of,,,CMR,CM,CM,Yaoundé,Africa,Middle Africa,Cameroonian,29442327,475440,600000000,1200000000,56011
 Canada,,,,CAN,CA,CA,Ottawa,Americas,Northern America,Canadian,41417056,9984670,6000000000,-9500000000,2225341
-Cayman Islands,the,,,CYM,KY,CJ,George Town,Americas,Caribbean,Caymanian,88833,262,1950000000,-8050000000,
-Central African Republic,the,,,CAF,CF,CT,Bangui,Africa,Middle Africa,Central African,6470307,622984,700000000,2100000000,2932
+the Cayman Islands,,,,CYM,KY,CJ,George Town,Americas,Caribbean,Caymanian,88833,262,1950000000,-8050000000,
+the Central African Republic,,,,CAF,CF,CT,Bangui,Africa,Middle Africa,Central African,6470307,622984,700000000,2100000000,2932
 Chad,the Republic of ,,,TCD,TD,CD,N'Djamena,Africa,Middle Africa,Chadian,20031602,1284000,1500000000,1900000000,18792
 Chile,the Republic of,,,CHL,CL,CI,Santiago,Americas,South America,Chilean,20206953,756950,-3000000000,-7100000000,343823
 China,the People's Republic of,,,CHN,CN,CH,Beijing,Asia,Eastern Asia,Chinese,1404890000,9596960,3500000000,10500000000,19231705
 Christmas Island,the Territory of,,,CXR,CX,KT,Flying Fish Cove,Oceania,Australia and New Zealand,Christmas Islander,1692,135,-1050000000,10566666666,
-Cocos (Keeling) Islands,the Territory of,,the Cocos Islands or the Keeling Islands,CCK,CC,CK,West Island,Oceania,Australia and New Zealand,Cocos Islander,593,14,-1250000000,9683333333,
+the Cocos (Keeling) Islands,the Territory of,,the Cocos Islands or the Keeling Islands,CCK,CC,CK,West Island,Oceania,Australia and New Zealand,Cocos Islander,593,14,-1250000000,9683333333,
 Colombia,the Republic of,,,COL,CO,CO,Bogotá,Americas,South America,Colombian,53057212,1138910,400000000,-7200000000,427766
-Comoros,the Union of the,,,COM,KM,CN,Moroni,Africa,Eastern Africa,Comorian,944388,2235,,,
+the Comoros,the Union of,,,COM,KM,CN,Moroni,Africa,Eastern Africa,Comorian,944388,2235,,,
 Congo,the Republic of the,,Congo-Brazzaville or the Congo Republic,COG,CG,CF,Brazzaville,Africa,Middle Africa,Congolese,6142180,342000,-100000000,1500000000,15281
-Cook Islands,the,,,COK,CK,CW,Avarua,Oceania,Polynesia,Cook Islander,15040,240,-2123333333,-15976666666,
+the Cook Islands,,,,COK,CK,CW,Avarua,Oceania,Polynesia,Cook Islander,15040,240,-2123333333,-15976666666,
 Costa Rica,the Republic of,,,CRI,CR,CS,San José,Americas,Central America,Costa Rican,5191824,51100,1000000000,-8400000000,102591
 Croatia,the Republic of,,,HRV,HR,HR,Zagreb,Europe,Southern Europe,Croatian,3866233,56542,4516666666,1550000000,98951
 Cuba,the Republic of,,,CUB,CU,CU,Havana,Americas,Caribbean,Cuban,9748007,110860,2150000000,-8000000000,
 Curaçao,the Country of,,,CUW,CW,UC,Willemstad,Americas,Caribbean,Curaçaoan,156115,444,1211666700,-6893333300,
 Cyprus,the Republic of,,,CYP,CY,CY,Nicosia,Europe,Southern Europe,Cypriot,983000,9250,3500000000,3300000000,38736
-Czech Republic,the,,Czechia,CZE,CZ,EZ,Prague,Europe,Eastern Europe,Czech,10896003,78866,4975000000,1550000000,360244
-Democratic Republic of the Congo,the,,DR Congo or Congo-Kinshasa,COD,CD,CG,Kinshasa,Africa,Middle Africa,Congolese,112832000,2345410,0,2500000000,79119
+the Czech Republic,,,Czechia,CZE,CZ,EZ,Prague,Europe,Eastern Europe,Czech,10896003,78866,4975000000,1550000000,360244
+the Democratic Republic of the Congo,,,DR Congo or Congo-Kinshasa,COD,CD,CG,Kinshasa,Africa,Middle Africa,Congolese,112832000,2345410,0,2500000000,79119
 Denmark,,,,DNK,DK,DA,Copenhagen,Europe,Northern Europe,Danish,6031992,43094,5600000000,1000000000,449940
 Djibouti,the Republic of,,,DJI,DJ,DJ,Djibouti City,Africa,Eastern Africa,Djiboutian,1066809,23000,1150000000,4300000000,4587
 Dominica,the Commonwealth of,,,DMA,DM,DO,Roseau,Americas,Caribbean,Dominican,65512,754,1541666666,-6133333333,742
-Dominican Republic,the,,,DOM,DO,DR,Santo Domingo,Americas,Caribbean,Dominican,10771504,48730,1900000000,-7066666666,127828
+the Dominican Republic,,,,DOM,DO,DR,Santo Domingo,Americas,Caribbean,Dominican,10771504,48730,1900000000,-7066666666,127828
 Ecuador,the Republic of,,,ECU,EC,EC,Quito,Americas,South America,Ecuadorian,18103660,283560,-200000000,-7750000000,125677
 Egypt,the Arab Republic of,,,EGY,EG,EG,Cairo,Africa,Northern Africa,Egyptian,108613296,1001450,2700000000,3000000000,347342
 El Salvador,the Republic of ,,,SLV,SV,ES,San Salvador,Americas,Central America,Salvadoran,6029976,21040,1383333333,-8891666666,36749
@@ -71,16 +71,16 @@ Eritrea,the State of,,,ERI,ER,ER,Asmara,Africa,Eastern Africa,Eritrean,3607000,1
 Estonia,the Republic of,,,EST,EE,EN,Tallinn,Europe,Northern Europe,Estonian,1360745,45226,5900000000,2600000000,45004
 Eswatini,the Kingdom of,,Swaziland or the Kingdom of Swaziland,SWZ,SZ,WZ,Mbabane,Africa,Southern Africa,Swazi,1235549,17363,-2650000000,3150000000,5483
 Ethiopia,the Federal Democratic Republic of,,,ETH,ET,ET,Addis Ababa,Africa,Eastern Africa,Ethiopian,111652998,1127127,800000000,3800000000,117457
-Falkland Islands,the,,the Falklands,FLK,FK,FK,Stanley,Americas,South America,Falkland Islander,3662,12173,-5175000000,-5900000000,
-Faroe Islands,the,,the Faroes,FRO,FO,FO,Tórshavn,Europe,Northern Europe,Faroese,55348,1399,6200000000,-700000000,
+the Falkland Islands,,,the Falklands,FLK,FK,FK,Stanley,Americas,South America,Falkland Islander,3662,12173,-5175000000,-5900000000,
+the Faroe Islands,,,the Faroes,FRO,FO,FO,Tórshavn,Europe,Northern Europe,Faroese,55348,1399,6200000000,-700000000,
 Fiji,the Republic of,,the Fiji Islands,FJI,FJ,FJ,Suva,Oceania,Melanesia,Fijian,902623,18270,-1800000000,17500000000,6257
 Finland,the Republic of,,,FIN,FI,FI,Helsinki,Europe,Northern Europe,Finnish,5651171,337030,6400000000,2600000000,303945
 France,,,the French Republic,FRA,FR,FR,Paris,Europe,Western Europe,French,69081996,547030,4600000000,200000000,3211292
 French Guiana,,,Guyane,GUF,GF,FG,Cayenne,Americas,South America,French Guianese,298554,91000,400000000,-5300000000,
 French Polynesia,,,,PYF,PF,FP,Papeete,Oceania,Polynesia,French Polynesian,279500,4167,-1500000000,-14000000000,
-French Southern and Antarctic Lands,the,,the French Southern Lands or the French Southern Territories or the Kerguelen Islands,ATF,TF,FS,Port-aux-Francais,Africa,Southern Africa,French Southern Territories,500,7666,-4925000000,6916700000,
+the French Southern and Antarctic Lands,,,the French Southern Lands or the French Southern Territories or the Kerguelen Islands,ATF,TF,FS,Port-aux-Francais,Africa,Southern Africa,French Southern Territories,500,7666,-4925000000,6916700000,
 Gabon,,,the Gabonese Republic,GAB,GA,GB,Libreville,Africa,Middle Africa,Gabonese,2469296,267667,-100000000,1175000000,20391
-Gambia,the Republic of The,,,GMB,GM,GA,Banjul,Africa,Western Africa,Gambian,2442712,11300,1346666666,-1656666666,2771
+The Gambia,the Republic of,,,GMB,GM,GA,Banjul,Africa,Western Africa,Gambian,2442712,11300,1346666666,-1656666666,2771
 Georgia,,,,GEO,GE,GG,Tbilisi,Asia,Western Asia,Georgian,3941100,69700,4200000000,4350000000,35353
 Germany,the Federal Republic of,,,DEU,DE,GM,Berlin,Europe,Western Europe,German,83467117,357021,5100000000,900000000,4744804
 Ghana,the Republic of,,,GHA,GH,GH,Accra,Africa,Western Africa,Ghanaian,33742380,239460,800000000,-200000000,88332
@@ -96,8 +96,8 @@ Guinea,the Republic of,,Guinea-Conakry,GIN,GN,GV,Conakry,Africa,Western Africa,G
 Guinea-Bissau,the Republic of,,,GNB,GW,PU,Bissau,Africa,Western Africa,Bissau-Guinean,1852784,36120,1200000000,-1500000000,2274
 Guyana,the Co-operative Republic of,,,GUY,GY,GY,Georgetown,Americas,South America,Guyanese,956044,214970,500000000,-5900000000,25822
 Haiti,the Republic of,,,HTI,HT,HA,Port-au-Prince,Americas,Caribbean,Haitian,11867032,27750,1900000000,-7241666666,33548
-Heard Island and McDonald Islands,,,,HMD,HM,HM,#N/A,#N/A,#N/A,#N/A,0,6589,-5310000000,7251666666,
-Holy See,the,,the See of Rome or the Pertine See or the Apostolic See,VAT,VA,VT,Vatican City,Europe,Southern Europe,Vatican,882,0,4190000000,1245000000,
+Heard Island and McDonald,the,Islands,,HMD,HM,HM,#N/A,#N/A,#N/A,#N/A,0,6589,-5310000000,7251666666,
+the Holy See,,,the See of Rome or the Pertine See or the Apostolic See,VAT,VA,VT,Vatican City,Europe,Southern Europe,Vatican,882,0,4190000000,1245000000,
 Honduras,the Republic of,,,HND,HN,HO,Tegucigalpa,Americas,Central America,Honduran,10186738,112090,1500000000,-8650000000,38172
 Hong Kong,, S.A.R.,,HKG,HK,HK,Hong Kong,Asia,Eastern Asia,HongKonger,7510800,2754,,,
 Hungary,,,,HUN,HU,HU,Budapest,Europe,Eastern Europe,Hungarian,9489000,93030,,,
@@ -137,7 +137,7 @@ Malaysia,,,,MYS,MY,MY,Kuala Lumpur,Asia,South-Eastern Asia,Malaysian,34374300,32
 Maldives,the Republic of ,,the Maldive Islands,MDV,MV,MV,Malé,Asia,Southern Asia,Maldivian,515132,300,325000000,7300000000,7480
 Mali,the Republic of ,,,MLI,ML,ML,Bamako,Africa,Western Africa,Malian,22395489,1240192,,,
 Malta,the Republic of ,,,MLT,MT,MT,Valletta,Europe,Southern Europe,Maltese,574250,316,3583333333,1458333333,25750
-Marshall Islands,the Republic of the,,,MHL,MH,RM,Majuro,Oceania,Micronesia,Marshallese,42418,181,900000000,16800000000,297
+the Marshall Islands,the Republic of,,,MHL,MH,RM,Majuro,Oceania,Micronesia,Marshallese,42418,181,900000000,16800000000,297
 Martinique,,,,MTQ,MQ,MB,Fort-de-France,Americas,Caribbean,Martinician,349925,1128,,,
 Mauritania,the Islamic Republic of,,,MRT,MR,MR,Nouakchott,Africa,Western Africa,Mauritanian,4927532,1030700,2000000000,-1200000000,11470
 Mauritius,the Republic of ,,,MUS,MU,MP,Port Louis,Africa,Eastern Africa,Mauritian,1241856,2040,-2028333333,5755000000,15495
@@ -155,7 +155,7 @@ Myanmar,the Republic of the Union of,,Burma,MMR,MM,BM,Naypyidaw,Asia,South-Easte
 Namibia,the Republic of ,,,NAM,NA,WA,Windhoek,Africa,Southern Africa,Namibian,3022401,825418,-2200000000,1700000000,14214
 Nauru,the Republic of ,,,NRU,NR,NR,Yaren,Oceania,Micronesia,Nauruan,11680,21,-53333333,16691666666,169
 Nepal,the Federal Democratic Republic of,,,NPL,NP,NP,Kathmandu,Asia,Southern Asia,Nepali,29911840,147181,,,
-Netherlands,the Kingdom of the,,,NLD,NL,NL,Amsterdam,Europe,Western Europe,Dutch,18151406,41865,,,
+the Netherlands,the Kingdom of,,,NLD,NL,NL,Amsterdam,Europe,Western Europe,Dutch,18151406,41865,,,
 New Caledonia,,,,NCL,NC,NC,Nouméa,Oceania,Melanesia,New Caledonian,264596,19060,-2150000000,16550000000,
 New Zealand,,,,NZL,NZ,NZ,Wellington,Oceania,Australia and New Zealand,New Zealander,5361300,263310,,,
 Nicaragua,the Republic of ,,,NIC,NI,NU,Managua,Americas,Central America,Nicaraguan,6874748,129494,1300000000,-8500000000,21155
@@ -165,7 +165,7 @@ Niue,,,,NIU,NU,NE,Alofi,Oceania,Polynesia,Niuean,1681,260,-1903333333,-169866666
 Norfolk Island,the Territory of,,,NFK,NF,NF,Kingston,Oceania,Australia and New Zealand,Norfolk Island,2188,34,-2903333333,16795000000,
 North Korea,,,the Democratic People's Republic of Korea,PRK,KP,KN,Pyongyang,Asia,Eastern Asia,North Korean,25950000,120540,4000000000,12700000000,
 North Macedonia,the Republic of ,,,MKD,MK,MK,Skopje,Europe,Southern Europe,Macedonian,1819074,25333,4183333333,2200000000,17885
-Northern Mariana Islands,the Commonwealth of the,,,MNP,MP,CQ,Saipan,Oceania,Micronesia,Northern Mariana Islander,47329,477,1520000000,14575000000,
+the Northern Mariana Islands,the Commonwealth of,,,MNP,MP,CQ,Saipan,Oceania,Micronesia,Northern Mariana Islander,47329,477,1520000000,14575000000,
 Norway,the Kingdom of,,,NOR,NO,NO,Oslo,Europe,Northern Europe,Norwegian,5633770,324220,6200000000,1000000000,504276
 Oman,the Sultanate of,,,OMN,OM,MU,Muscat,Asia,Western Asia,Omani,5291146,212460,2100000000,5700000000,104351
 Pakistan,the Islamic Republic of,,,PAK,PK,PK,Islamabad,Asia,Southern Asia,Pakistani,241499431,803940,3000000000,7000000000,
@@ -175,7 +175,7 @@ Panama,the Republic of ,,,PAN,PA,PM,Panama City,Americas,Central America,Panaman
 Papua New Guinea,the Independent State of ,,,PNG,PG,PP,Port Moresby,Oceania,Melanesia,Papua New Guinean,10185363,462840,,,
 Paraguay,the Republic of ,,,PRY,PY,PA,Asunción,Americas,South America,Paraguayan,6109644,406750,-2300000000,-5800000000,45465
 Peru,the Republic of ,,,PER,PE,PE,Lima,Americas,South America,Peruvian,34350244,1285220,-1000000000,-7600000000,303293
-Philippines,the,,the Republic of the Philippines,PHL,PH,RP,Manila,Asia,South-Eastern Asia,Philippine,114123600,300000,,,
+the Philippines,,,the Republic of the Philippines,PHL,PH,RP,Manila,Asia,South-Eastern Asia,Philippine,114123600,300000,,,
 Pitcairn,the,Islands,"the Pitcairn, Henderson, Ducie and Oeno Islands",PCN,PN,PC,Adamstown,Oceania,Polynesia,Pitcairn Islanders,35,47,-2506666666,-13010000000,
 Poland,the Republic of ,,,POL,PL,PL,Warsaw,Europe,Eastern Europe,Polish,37281000,312685,5200000000,2000000000,979960
 Portugal,,,the Portuguese Republic,PRT,PT,PO,Lisbon,Europe,Southern Europe,Portuguese,11424031,92391,3950000000,-800000000,321440
@@ -204,10 +204,10 @@ Singapore,the Republic of ,,,SGP,SG,SN,Singapore,Asia,South-Eastern Asia,Singapo
 Sint Maarten,,(Dutch part),,SXM,SX,NN,Philipsburg,Americas,Caribbean,Sint Maarten,41349,21,1803333300,-6305000000,
 Slovakia,,,the Slovak Republic,SVK,SK,LO,Bratislava,Europe,Eastern Europe,Slovak,5405368,48845,4866666666,1950000000,147031
 Slovenia,the Republic of ,,,SVN,SI,SI,Ljubljana,Europe,Southern Europe,Slovenian,2135107,20272,,,
-Solomon Islands,the ,,the Solomons,SLB,SB,BP,Honiara,Oceania,Melanesia,Solomon Islander or Solomonese,750325,28450,-800000000,15900000000,1898
+the Solomon Islands,,,the Solomons,SLB,SB,BP,Honiara,Oceania,Melanesia,Solomon Islander or Solomonese,750325,28450,-800000000,15900000000,1898
 Somalia,the Federal Republic of,,,SOM,SO,SO,Mogadishu,Africa,Eastern Africa,Somali,19655000,637657,,,
 South Africa,the Republic of ,,,ZAF,ZA,SF,Pretoria,Africa,Southern Africa,South African,63100945,1219912,-2900000000,2400000000,410338
-South Georgia and the South Sandwich Islands,the,,South Georgia,SGS,GS,SX,King Edward Point,Americas,South America,South Georgian or South Sandwich Islander,20,3903,-5450000000,-3700000000,
+the South Georgia and the South Sandwich Islands,,,South Georgia,SGS,GS,SX,King Edward Point,Americas,South America,South Georgian or South Sandwich Islander,20,3903,-5450000000,-3700000000,
 South Korea,,,the Republic of Korea,KOR,KR,KS,Seoul,Asia,Eastern Asia,South Korean,51097986,98480,3700000000,12750000000,1790322
 South Sudan,the Republic of ,,,SSD,SS,OD,Juba,Africa,Middle Africa,South Sudanese,15786898,644329,700000000,3000000000,3998
 Spain,the Kingdom of,,,ESP,ES,SP,Madrid,Europe,Southern Europe,Spanish,49687120,504782,4000000000,-400000000,1799511
@@ -230,15 +230,15 @@ Trinidad and Tobago,the Republic of ,,,TTO,TT,TD,Port of Spain,Americas,Caribbea
 Tunisia,the Republic of ,,,TUN,TN,TS,Tunis,Africa,Northern Africa,Tunisian,11972169,163610,3400000000,900000000,56291
 Türkiye,the Republic of ,,Turkey,TUR,TR,TU,Ankara,Asia,Western Asia,Turkish,86092168,780580,3900000000,3500000000,1437406
 Turkmenistan,,,,TKM,TM,TX,Ashgabat,Asia,Central Asia,Turkmen,7057841,488100,4000000000,6000000000,89054
-Turks and Caicos Islands,the,,,TCA,TC,TK,Cockburn Town,Americas,Caribbean,Turks and Caicos Islander,50828,430,2175000000,-7158333333,
+Turks and Caicos,the,Islands,,TCA,TC,TK,Cockburn Town,Americas,Caribbean,Turks and Caicos Islander,50828,430,2175000000,-7158333333,
 Tuvalu,,,,TUV,TV,TV,Funafuti,Oceania,Polynesia,Tuvaluan,10643,26,-800000000,17800000000,65
 Uganda,the Republic of ,,,UGA,UG,UG,Kampala,Africa,Eastern Africa,Ugandan,45905417,236040,100000000,3200000000,64277
 Ukraine,,,,UKR,UA,UP,Kyiv,Europe,Eastern Europe,Ukrainian,28700000,603700,4900000000,3200000000,205742
-United Arab Emirates,the,,the Emirates,ARE,AE,AE,Abu Dhabi,Asia,Western Asia,Emirati,11294243,83600,,,
-United Kingdom,the,of Great Britain and Northern Ireland,the UK,GBR,GB,UK,London,Europe,Northern Europe,British,69487000,244376,,,
-United States,the,of America,USA,USA,US,US,Washington D.C.,Americas,Northern America,American,341784857,9629091,3800000000,-9700000000,30507217
-United States Minor Outlying Islands,the,,,UMI,UM,UM,#N/A,Americas,Northern America,American,300,49,0,0,
-United States Virgin Islands,the,,the Virgin Islands of the United States,VIR,VI,VQ,Charlotte Amalie,Americas,Caribbean,U.S. Virgin Islander,87146,352,1834000000,-6493000000,
+the United Arab Emirates,,,the Emirates,ARE,AE,AE,Abu Dhabi,Asia,Western Asia,Emirati,11294243,83600,,,
+the United Kingdom,,of Great Britain and Northern Ireland,the UK,GBR,GB,UK,London,Europe,Northern Europe,British,69487000,244376,,,
+the United States,,of America,USA,USA,US,US,Washington D.C.,Americas,Northern America,American,341784857,9629091,3800000000,-9700000000,30507217
+the United States Minor Outlying Islands,,,,UMI,UM,UM,#N/A,Americas,Northern America,American,300,49,0,0,
+the United States Virgin Islands,,,the Virgin Islands of the United States,VIR,VI,VQ,Charlotte Amalie,Americas,Caribbean,U.S. Virgin Islander,87146,352,1834000000,-6493000000,
 Uruguay,the Oriental Republic of,,,URY,UY,UY,Montevideo,Americas,South America,Uruguayan,3485931,176220,-3300000000,-5600000000,79731
 Uzbekistan,the Republic of ,,,UZB,UZ,UZ,Tashkent,Asia,Central Asia,Uzbekistani,39047321,448978,,,
 Vanuatu,the Republic of ,,,VUT,VU,NH,Port Vila,Oceania,Melanesia,Ni-Vanuatu,321409,12189,,,

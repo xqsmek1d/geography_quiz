@@ -14,20 +14,23 @@ ANSWER_TYPE_PRECEDENCE_RULES = {}
 
 DISTRACTOR_STRATEGY_PRECEDENCE_RULES = {}
 
-def resolve_settings(settings: QuizSettings) -> QuizSettings:
+def resolve_settings(settings: QuizSettings, resolve_custom_settings = True) -> QuizSettings:
 
     # Resolve custom gameplay settings
-    if settings.quiz_mode == QuizMode.CUSTOM:
+    if settings.quiz_mode == QuizMode.CUSTOM and resolve_custom_settings:
         settings.gameplay = CLI_CUSTOM_GAMEPLAY_SETTINGS.model_copy(deep=True)
-    else:
-        settings.gameplay = QUIZ_MODE_SETTINGS[settings.quiz_mode].model_copy(deep=True)
+        return settings
+
+    if settings.quiz_mode == QuizMode.CUSTOM and (not resolve_custom_settings):
+        return settings
+    
+    settings.gameplay = QUIZ_MODE_SETTINGS[settings.quiz_mode].model_copy(deep=True)
+    return settings
     
     # Resolve incompatible question category, answer type and distractor strategy combinations:
 #    settings.question_categories = apply_precedence_rules(settings.question_categories, QUESTION_CATEGORY_PRECEDENCE_RULES)
 #    settings.distractor_strategies = apply_precedence_rules(settings.distractor_strategies, DISTRACTOR_STRATEGY_PRECEDENCE_RULES)
 #    settings.answer_types = apply_precedence_rules(settings.answer_types, ANSWER_TYPE_PRECEDENCE_RULES)
-
-    return settings
 
 def apply_precedence_rules(values,rules):
     values = list(values)

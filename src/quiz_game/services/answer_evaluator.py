@@ -34,13 +34,13 @@ class AnswerEvaluator():
         for answer in accepted_answers:
             normalised_answer = self._normalise(answer)
             
-            print(f"Checking levenshtein distance for {normalised_submitted} against {normalised_answer}")
+            #print(f"Checking levenshtein distance for {normalised_submitted} against {normalised_answer}")
             distance = Levenshtein.distance(normalised_submitted, normalised_answer,)
 
             allowed_distance = self._allowed_spelling_distance(normalised_answer)
 
-            print(f"The levenshtein distance = {distance}, but the allowed was: {allowed_distance}")
-            input("Press enter to continue...")
+            #print(f"The levenshtein distance = {distance}, but the allowed was: {allowed_distance}")
+            #input("Press enter to continue...")
             if 0 < distance <= allowed_distance:
                 return MatchType.SPELLING_MISTAKE
 

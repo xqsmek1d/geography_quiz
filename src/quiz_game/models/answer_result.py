@@ -6,3 +6,4 @@ class AnswerResult(BaseModel):
     is_correct: bool
     correct_answer: str
     match_type: MatchType
+    score: float | None = None

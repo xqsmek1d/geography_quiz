@@ -22,14 +22,23 @@ class QuizSession:
         self.settings = settings
         self.question_generator = question_generator
 
-        self.state = GameState()
         self._current_question: Question | None = None
         self._current_answer_key: AnswerKey | None = None
-
         self.answer_evaluator = answer_evaluator
-        self.state_manager = StateManager()
+
+        self.state_manager = StateManager(settings)
+
+    @property
+    def state(self):
+        """
+        Return the current game state.
+        """
+        return self.state_manager.state
 
     def get_current_question(self) -> Question | None:
+        """
+        Return the current question.
+        """
         return self._current_question
 
     def next_question(self) -> Question:
@@ -44,7 +53,7 @@ class QuizSession:
         self._current_question = question
         self._current_answer_key = answer_key
 
-        self.state.questions_asked += 1
+        self.state_manager.record_question_asked()
 
         return question
     
@@ -61,7 +70,7 @@ class QuizSession:
         if not result.is_correct and self.settings.gameplay.question_recycling:
             self.question_generator.recycle_question(self._current_question.category, self._current_question.question_entity_id)
 
-        self.state_manager.update(self.state,result)
+        self.state_manager.record_answer(result)
 
         self._current_question = None
         self._current_answer_key = None
@@ -72,4 +81,4 @@ class QuizSession:
         return self.question_generator.has_questions()
 
     def is_finished(self) -> bool:
-        return self.state.game_over or not self.has_questions()
+        return self.state_manager.state.game_over or not self.has_questions()

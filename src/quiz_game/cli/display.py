@@ -85,6 +85,37 @@ def display_settings(settings: QuizSettings):
 
     print("\n".join(lines))
 
+def display_gameplay_settings(settings: QuizSettings):
+    lines = [
+        "\n===== CUSTOM GAMEPLAY SETTINGS =====\n",
+    ]
+
+    # List quiz mode information
+    if settings.gameplay.lives:
+        lines.append(f'   - lives = {settings.gameplay.lives}')
+    else:
+        lines.append(f'   - lives = N/A')
+
+    if settings.gameplay.question_time:
+        lines.append(f'   - time per question = {settings.gameplay.question_time} seconds')
+    else:
+        lines.append(f'   - time per question = N/A')
+    
+    if settings.gameplay.total_time:
+        lines.append(f'   - total time = {settings.gameplay.total_time} seconds')
+    else:
+        lines.append(f'   - total time = N/A')
+
+    if settings.gameplay.num_questions: 
+        lines.append(f'   - number of questions = {settings.gameplay.num_questions}')
+    else:
+        lines.append(f'   - number of questions = N/A')
+
+    lines.append(f'   - question_recycling: {settings.gameplay.question_recycling}')
+    lines.append(f'   - infinite mode: {settings.gameplay.infinite_mode}')
+
+    print("\n".join(lines))
+
 def display_question(question: Question, question_count: int | None, viewer: ImageViewer):
 
     lines = []
@@ -132,3 +163,59 @@ def display_summary(game_state: GameState):
     print("\nQuiz finished!")
     print(f"Questions: {game_state.questions_asked}")
     print(f"Score: {game_state.score}")
+
+def display_game_state(game_state: GameState):
+
+    print("")
+    print(f"Remaining lives: {game_state.remaining_lives}")
+    print(f"Score: {game_state.score}")
+    print(f"Elapsed time: {game_state.elapsed_time}")
+
+def display_ending() -> bool:
+
+    print("")
+    print(f"Thank you for playing!")
+    print("")
+    print(f"Press Enter to continue or Escape to exit...")
+
+    if os.name == "nt":
+        return _wait_for_continue_windows()
+    
+    return _wait_for_continue_unix()
+    
+
+def _wait_for_continue_windows() -> bool:
+    import msvcrt
+
+    while True:
+        key = msvcrt.getwch()
+
+        if key == "\r":
+            return True
+
+        if key == "\x1b":
+            return False
+
+def _wait_for_continue_unix() -> bool:
+    import sys
+    import termios
+    import tty
+
+    file_descriptor = sys.stdin.fileno()
+
+    old_settings = termios.tcgetattr(file_descriptor,)
+
+    try:
+        tty.setraw(file_descriptor)
+
+        while True:
+            key = sys.stdin.read(1)
+
+            if key in ("\r", "\n"):
+                return True
+
+            if key == "\x1b":
+                return False
+
+    finally:
+        termios.tcsetattr(file_descriptor, termios.TCSADRAIN, old_settings)

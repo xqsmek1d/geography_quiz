@@ -1,3 +1,6 @@
+import threading
+import time
+
 from quiz_game.models.question import Question
 from quiz_game.config.enums import AnswerType
 
@@ -34,5 +37,7 @@ class InputHandler:
                 print(f"Please enter one of: {', '.join(valid_letters)} (or type the answer)")
 
         def _open_answer(self):
-
+            """
+            Get an open answer
+            """
             return input("> ").strip()

@@ -13,15 +13,15 @@ Although it is still mainly focused on interaction with a command-line interface
 
 ## Features
 
-### Quiz *(planned)*
+### Quiz
 
 - Multiple question types
-    - Country → Capital *(planned)*
-    - Capital → Country *(planned)*
+    - Country → Capital 
+    - Capital → Country
     - City → Country *(planned)*
-    - Flag → Country *(planned)*
+    - Flag → Country
     - Country outline → Country *(planned)*
-    - Highlighted map → Country *(planned)*
+    - Highlighted map → Country
 - Open questions
 - Multiple choice questions
 - Mixed questions mode (e.g. open and multiple choice)
