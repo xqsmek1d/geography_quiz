@@ -31,6 +31,7 @@ from quiz_game.services.answer_evaluator import AnswerEvaluator
 
 from quiz_game.cli.display import display_settings
 from quiz_game.cli.image_viewer import ImageViewer
+from quiz_game.cli.terminal_renderer import TerminalRenderer
 from quiz_game.cli.settings_menu import SettingsMenu
 from quiz_game.cli.game_loop import GameLoop
 
@@ -84,7 +85,8 @@ def main():
 
     session = QuizSession(settings, question_generator=question_generator, answer_evaluator=answer_evaluator)
 
-    game_loop = GameLoop(session, viewer=viewer)
+    renderer = TerminalRenderer()
+    game_loop = GameLoop(session, viewer=viewer, renderer=renderer)
 
     game_loop.run()
 

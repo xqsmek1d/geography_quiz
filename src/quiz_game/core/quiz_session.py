@@ -8,6 +8,8 @@ from quiz_game.generators.question_generator import QuestionGenerator
 from quiz_game.services.answer_evaluator import AnswerEvaluator
 from quiz_game.services.state_manager import StateManager
 
+from quiz_game.core.timer import QuestionTimer, GameTimer
+
 class QuizSession: 
     """
     Controls the flow of a quiz.
@@ -28,6 +30,10 @@ class QuizSession:
 
         self.state_manager = StateManager(settings)
 
+        # Initialize game timers (not yet started)
+        self.question_timer = QuestionTimer(duration=self.settings.gameplay.question_time)
+        self.game_timer = GameTimer(duration=self.settings.gameplay.total_time)
+
     @property
     def state(self):
         """
@@ -41,7 +47,7 @@ class QuizSession:
         """
         return self._current_question
 
-    def next_question(self) -> Question:
+    def next_question(self, question_count: int | None) -> Question:
         """
         Generate and return the next question.
         """
@@ -49,6 +55,7 @@ class QuizSession:
             raise RuntimeError("ERROR: no questions remaining!")
 
         question, answer_key = self.question_generator.next_question()
+        question.count = question_count
 
         self._current_question = question
         self._current_answer_key = answer_key

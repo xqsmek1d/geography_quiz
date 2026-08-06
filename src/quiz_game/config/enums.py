@@ -98,7 +98,7 @@ class MatchType(StrEnum):
     EXACT = "exact"                             # valid name, exact characters used
     ACCENT_INSENSITIVE = "accent_insensitive"   # correct name, only accents differ (Aland instead of Åland)
     SPELLING_MISTAKE = "spelling mistake"       # small typo such as swapped letters or a missing character (Ålnd or Ålnad instead of Åland)
-    #FUZZY = "fuzzy"                             # broadly similar but less certain (Mehiko instead of Mexico)
+    TIMEOUT = "timeout"                         # question timer timed out
     NO_MATCH = "no_match"                       # cannot identify a single broad match
 
     @property 

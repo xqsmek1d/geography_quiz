@@ -48,8 +48,16 @@ class AnswerEvaluator():
 
     
     def evaluate(self, answer_key: AnswerKey, submitted_answer: str,) -> AnswerResult:
-
-        submitted = submitted_answer.strip()
+        
+        if submitted_answer:
+            submitted = submitted_answer.strip()
+        else:
+            return AnswerResult(
+                submitted_answer=None,
+                is_correct=False,
+                correct_answer=answer_key.correct_answer,
+                match_type=MatchType.TIMEOUT
+            )
         
         # Exact Match
         if submitted in (answer.strip() for answer in answer_key.accepted_answers):

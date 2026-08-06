@@ -8,6 +8,7 @@ class Question(BaseModel):
     prompt: str
 
     question_entity_id: str
+    count: int | None = None
 
     question_id: str | None = None
 

@@ -116,16 +116,16 @@ def display_gameplay_settings(settings: QuizSettings):
 
     print("\n".join(lines))
 
-def display_question(question: Question, question_count: int | None, viewer: ImageViewer):
+def display_question(question: Question, print_output=False):
 
     lines = []
 
-    if question_count is None:
+    if question.count is None:
         lines.apppend("\n====== Question ======")
     else:
-        lines.append(f"\n====== Question {question_count} ======")
+        lines.append(f"\n====== Question {question.count} ======")
 
-    viewer.show(question.image)
+    #viewer.show(question.image)
     
     lines.append("")
     lines.append(question.prompt)
@@ -140,25 +140,39 @@ def display_question(question: Question, question_count: int | None, viewer: Ima
     else:
         lines.append("Type your answer:")
 
-    print("\n".join(lines))
+    question_text = "\n".join(lines)
 
-def display_result(result: AnswerResult):
+    if print_output:
+        print(question_text)
 
-    os.system("clear")
+    return question_text
+
+def display_result(result: AnswerResult, print_output=False):
+
+    #os.system("clear")
 
     if result.match_type == MatchType.EXACT:
-        print("Correct!")
+        text = f"✓ Correct! ({result.correct_answer})" 
     elif result.match_type == MatchType.ACCENT_INSENSITIVE:
-        print(f"Correct, but I think the accents were slighlty off. It should have been '{result.correct_answer}'")
+        text = f"✓ Correct, but I think the accents were slighlty off. It should have been '{result.correct_answer}'"
     elif result.match_type == MatchType.SPELLING_MISTAKE:
-        print(f"Correct, but I think you made a small spelling mistake. It should have been '{result.correct_answer}'")
+        text = f"✓ Correct, but I think you made a small spelling mistake. It should have been '{result.correct_answer}'"
+    elif result.match_type == MatchType.TIMEOUT:
+        text = f"✗ Timed out! The correct answer was {result.correct_answer}"
     else:
-        print(f"Incorrect. The answer was {result.correct_answer}")
+        text = f"✗ Incorrect. The correct answer was {result.correct_answer}"
+    
+    if print_output:
+        print(text)
+    
+    return text
 
 def display_score():
     raise NotImplementedError
 
 def display_summary(game_state: GameState):
+
+    os.system("clear")
 
     print("\nQuiz finished!")
     print(f"Questions: {game_state.questions_asked}")
@@ -176,7 +190,7 @@ def display_ending() -> bool:
     print("")
     print(f"Thank you for playing!")
     print("")
-    print(f"Press Enter to continue or Escape to exit...")
+    print(f"Press Escape to exit...")
 
     if os.name == "nt":
         return _wait_for_continue_windows()
@@ -189,9 +203,9 @@ def _wait_for_continue_windows() -> bool:
 
     while True:
         key = msvcrt.getwch()
-
-        if key == "\r":
-            return True
+        
+        #if key == "\r":
+        #    return True
 
         if key == "\x1b":
             return False
@@ -211,8 +225,8 @@ def _wait_for_continue_unix() -> bool:
         while True:
             key = sys.stdin.read(1)
 
-            if key in ("\r", "\n"):
-                return True
+            #if key in ("\r", "\n"):
+            #    return True
 
             if key == "\x1b":
                 return False
